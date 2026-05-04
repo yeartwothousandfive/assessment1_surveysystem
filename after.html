@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>After Survey - EduTour PH</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="main.html">Home</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section id="survey-header">
+      <p class="phase-label">Phase 2 of 2</p>
+      <h1>After the Visit</h1>
+      <p>How was it? Rate your experience and share what you learned from the field trip.</p>
+    </section>
+
+    <section id="after-survey">
+
+      <form action="completionfeedback.html" method="get" id="after-form">
+
+   
+        <fieldset>
+          <legend>Your Experience</legend>
+
+          <div class="form-group">
+            <label for="visited-loc">Location Visited <span class="required">*</span></label>
+            <select id="visited-loc" name="visited_location" required>
+              <option value="" disabled selected>Which place did you visit?</option>
+              <option value="Fort Santiago">Fort Santiago</option>
+              <option value="Intramuros">Intramuros</option>
+              <option value="Arroceros Forest Park">Arroceros Forest Park</option>
+              <option value="Rizal Park">Rizal Park</option>
+              <option value="National Museum of Natural History">National Museum of Natural History</option>
+              <option value="National Museum of Anthropology">National Museum of Anthropology</option>
+              <option value="National Museum of Fine Arts">National Museum of Fine Arts</option>
+              <option value="Enchanted Kingdom">Enchanted Kingdom</option>
+              <option value="Star City">Star City</option>
+              <option value="Manila Ocean Park">Manila Ocean Park</option>
+              <option value="DNA Museum">Digital National Art Museum (DNA Museum)</option>
+              <option value="Baluarte de San Diego">Baluarte de San Diego</option>
+              <option value="Multiple locations">Multiple locations</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>First Impression <span class="required">*</span></label>
+            <div class="radio-group">
+              <label>
+                <input type="radio" name="first_impression" value="Exceeded expectations" required />
+                Exceeded expectations
+              </label>
+              <label>
+                <input type="radio" name="first_impression" value="Met expectations" />
+                Met expectations
+              </label>
+              <label>
+                <input type="radio" name="first_impression" value="Below expectations" />
+                Below expectations
+              </label>
+              <label>
+                <input type="radio" name="first_impression" value="Disappointed" />
+                Disappointed
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Staff / Local Interaction <span class="required">*</span></label>
+            <p class="hint">Rate from 1 (Poor) to 5 (Excellent)</p>
+            <div class="radio-group radio-inline">
+              <label><input type="radio" name="staff_rating" value="1" required /> 1 - Poor</label>
+              <label><input type="radio" name="staff_rating" value="2" /> 2 - Fair</label>
+              <label><input type="radio" name="staff_rating" value="3" /> 3 - Average</label>
+              <label><input type="radio" name="staff_rating" value="4" /> 4 - Good</label>
+              <label><input type="radio" name="staff_rating" value="5" /> 5 - Excellent</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Pricing / Entrance Fees <span class="required">*</span></label>
+            <div class="radio-group">
+              <label>
+                <input type="radio" name="pricing" value="Very Affordable" required />
+                Very Affordable
+              </label>
+              <label>
+                <input type="radio" name="pricing" value="Reasonable" />
+                Reasonable
+              </label>
+              <label>
+                <input type="radio" name="pricing" value="Expensive" />
+                Expensive
+              </label>
+              <label>
+                <input type="radio" name="pricing" value="Not sure" />
+                Not sure
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Cleanliness <span class="required">*</span></label>
+            <p class="hint">Rate from 1 (Very Dirty) to 5 (Very Clean)</p>
+            <div class="radio-group radio-inline">
+              <label><input type="radio" name="cleanliness" value="1" required /> 1</label>
+              <label><input type="radio" name="cleanliness" value="2" /> 2</label>
+              <label><input type="radio" name="cleanliness" value="3" /> 3</label>
+              <label><input type="radio" name="cleanliness" value="4" /> 4</label>
+              <label><input type="radio" name="cleanliness" value="5" /> 5</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Crowd Management <span class="required">*</span></label>
+            <div class="radio-group">
+              <label>
+                <input type="radio" name="crowd" value="Well-managed" required />
+                Well-managed
+              </label>
+              <label>
+                <input type="radio" name="crowd" value="Okay" />
+                Okay
+              </label>
+              <label>
+                <input type="radio" name="crowd" value="Too crowded" />
+                Too crowded
+              </label>
+              <label>
+                <input type="radio" name="crowd" value="Chaotic" />
+                Chaotic
+              </label>
+            </div>
+          </div>
+
+        </fieldset>
+
+
+        <fieldset>
+          <legend>Overall Experience</legend>
+
+          <div class="form-group">
+            <label>How would you rate your overall experience? <span class="required">*</span></label>
+            <div class="radio-group">
+              <label>
+                <input type="radio" name="overall_rating" value="Very Satisfied" required />
+                Very Satisfied
+              </label>
+              <label>
+                <input type="radio" name="overall_rating" value="Satisfied" />
+                Satisfied
+              </label>
+              <label>
+                <input type="radio" name="overall_rating" value="Neutral" />
+                Neutral
+              </label>
+              <label>
+                <input type="radio" name="overall_rating" value="Dissatisfied" />
+                Dissatisfied
+              </label>
+              <label>
+                <input type="radio" name="overall_rating" value="Very Dissatisfied" />
+                Very Dissatisfied
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Did the experience meet your expectations? <span class="required">*</span></label>
+            <div class="radio-group">
+              <label>
+                <input type="radio" name="met_expectations" value="Yes" required />
+                Yes
+              </label>
+              <label>
+                <input type="radio" name="met_expectations" value="No" />
+                No
+              </label>
+              <label>
+                <input type="radio" name="met_expectations" value="Partially" />
+                Partially
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Was the environment comfortable and safe? <span class="required">*</span></label>
+            <div class="radio-group">
+              <label>
+                <input type="radio" name="environment_safe" value="Yes" required />
+                Yes
+              </label>
+              <label>
+                <input type="radio" name="environment_safe" value="No" />
+                No
+              </label>
+              <label>
+                <input type="radio" name="environment_safe" value="Somewhat" />
+                Somewhat
+              </label>
+            </div>
+          </div>
+
+        </fieldset>
+
+     
+        <fieldset>
+          <legend>Learnings and Skills Gained</legend>
+
+          <div class="form-group">
+            <label>What skills or knowledge did you gain? <span class="required">*</span></label>
+            <p class="hint">Select all that apply.</p>
+            <div class="checkbox-group">
+              <label>
+                <input type="checkbox" name="skills_gained" value="Historical knowledge" />
+                Historical knowledge
+              </label>
+              <label>
+                <input type="checkbox" name="skills_gained" value="Cultural awareness" />
+                Cultural awareness
+              </label>
+              <label>
+                <input type="checkbox" name="skills_gained" value="Environmental awareness" />
+                Environmental awareness
+              </label>
+              <label>
+                <input type="checkbox" name="skills_gained" value="Social skills" />
+                Social skills
+              </label>
+              <label>
+                <input type="checkbox" name="skills_gained" value="Art appreciation" />
+                Art appreciation
+              </label>
+              <label>
+                <input type="checkbox" name="skills_gained" value="Science and nature" />
+                Science and nature
+              </label>
+              <label>
+                <input type="checkbox" name="skills_gained" value="Leadership" />
+                Leadership
+              </label>
+              <label>
+                <input type="checkbox" name="skills_gained" value="Photography and observation" />
+                Photography and observation
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Do you feel more confident after this field experience? <span class="required">*</span></label>
+            <div class="radio-group">
+              <label>
+                <input type="radio" name="more_confident" value="Yes" required />
+                Yes
+              </label>
+              <label>
+                <input type="radio" name="more_confident" value="No" />
+                No
+              </label>
+              <label>
+                <input type="radio" name="more_confident" value="Somewhat" />
+                Somewhat
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Rate how helpful the experience was to your learning <span class="required">*</span></label>
+            <p class="hint">1 = Not helpful at all &nbsp;&mdash;&nbsp; 5 = Extremely helpful</p>
+            <div class="radio-group radio-inline">
+              <label><input type="radio" name="helpfulness" value="1" required /> 1</label>
+              <label><input type="radio" name="helpfulness" value="2" /> 2</label>
+              <label><input type="radio" name="helpfulness" value="3" /> 3</label>
+              <label><input type="radio" name="helpfulness" value="4" /> 4</label>
+              <label><input type="radio" name="helpfulness" value="5" /> 5</label>
+            </div>
+          </div>
+
+        </fieldset>
+
+    
+        <fieldset>
+          <legend>Satisfaction and Recommendation</legend>
+
+          <div class="form-group">
+            <label>Would you recommend this experience to others? <span class="required">*</span></label>
+            <div class="radio-group">
+              <label>
+                <input type="radio" name="recommend" value="Yes" required />
+                Yes
+              </label>
+              <label>
+                <input type="radio" name="recommend" value="No" />
+                No
+              </label>
+              <label>
+                <input type="radio" name="recommend" value="Maybe" />
+                Maybe
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Would you like to participate again next year? <span class="required">*</span></label>
+            <div class="radio-group">
+              <label>
+                <input type="radio" name="participate_again" value="Yes" required />
+                Yes
+              </label>
+              <label>
+                <input type="radio" name="participate_again" value="No" />
+                No
+              </label>
+              <label>
+                <input type="radio" name="participate_again" value="Maybe" />
+                Maybe
+              </label>
+            </div>
+          </div>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>Suggestions and Feedback</legend>
+
+          <div class="form-group">
+            <label for="liked-most">What did you like the most? <span class="required">*</span></label>
+            <textarea id="liked-most" name="liked_most" rows="4" placeholder="Tell us the highlight of your visit..." required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="improvements">What can be improved?</label>
+            <textarea id="improvements" name="improvements" rows="4" placeholder="Suggestions for the organizers or the venue..."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="additional-comments">Any additional comments or suggestions?</label>
+            <textarea id="additional-comments" name="additional_comments" rows="3" placeholder="Anything else you want to share..."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>
+              <input type="checkbox" name="anonymous" value="yes" id="anonymous-check" />
+              Submit anonymously (your name will not be recorded)
+            </label>
+          </div>
+
+        </fieldset>
+
+
+        <div class="form-actions">
+          <button type="submit">Submit Survey</button>
+         <a href="index.html">Cancel and Return to Home</a>
+        </div>
+
+      </form>
+
+    </section>
+  </main>
+
+  <footer>
+    <p>Group 5: Local Tourism &times; School Classroom Feedback System</p>
+    <p>Assessment #1: Survey System</p>
+  </footer>
+
+</body>
+</html>
