@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Before Survey</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="main.html">Home</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section id="survey-header">
+      <p class="phase-label">Phase 1 of 2</p>
+      <h1>Before the Visit</h1>
+      <p>Tell us about yourself and what you are expecting from the field trip.</p>
+    </section>
+
+    <section id="before-survey">
+
+      <form action="completionfeedback.html" method="get" id="before-form">
+
+        <fieldset>
+          <legend>Personal Details</legend>
+
+          <div class="form-group">
+            <label for="name">Full Name <span class="required">*</span></label>
+            <input type="text" id="name" name="name" placeholder="e.g. Juan dela Cruz" required />
+          </div>
+
+          <div class="form-group">
+            <label for="grade">Grade and Section <span class="required">*</span></label>
+            <select id="grade" name="grade" required>
+              <option value="" disabled selected>Select your grade and section</option>
+              <optgroup label="Junior High School">
+                <option value="Grade 7-A">Grade 7-A</option>
+                <option value="Grade 7-B">Grade 7-B</option>
+                <option value="Grade 8-A">Grade 8-A</option>
+                <option value="Grade 8-B">Grade 8-B</option>
+                <option value="Grade 9-A">Grade 9-A</option>
+                <option value="Grade 9-B">Grade 9-B</option>
+                <option value="Grade 10-A">Grade 10-A</option>
+                <option value="Grade 10-B">Grade 10-B</option>
+              </optgroup>
+              <optgroup label="Senior High School">
+                <option value="Grade 11-STEM-A">Grade 11 - STEM A</option>
+                <option value="Grade 11-STEM-B">Grade 11 - STEM B</option>
+                <option value="Grade 11-ABM">Grade 11 - ABM</option>
+                <option value="Grade 11-HUMSS">Grade 11 - HUMSS</option>
+                <option value="Grade 12-STEM-A">Grade 12 - STEM A</option>
+                <option value="Grade 12-STEM-B">Grade 12 - STEM B</option>
+                <option value="Grade 12-ABM">Grade 12 - ABM</option>
+                <option value="Grade 12-HUMSS">Grade 12 - HUMSS</option>
+              </optgroup>
+              <optgroup label="College">
+                <option value="College-1st">College - 1st Year</option>
+                <option value="College-2nd">College - 2nd Year</option>
+                <option value="College-3rd">College - 3rd Year</option>
+                <option value="College-4th">College - 4th Year</option>
+              </optgroup>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="age">Age <span class="required">*</span></label>
+            <input type="number" id="age" name="age" min="10" max="30" placeholder="e.g. 18" required />
+          </div>
+
+        </fieldset>
+
+     
+        <fieldset>
+          <legend>Preferred Locations</legend>
+          <p>Select all locations you want to visit.</p>
+
+          <div class="checkbox-group">
+            <label>
+              <input type="checkbox" name="location" value="Fort Santiago" />
+              Fort Santiago
+            </label>
+            <label>
+              <input type="checkbox" name="location" value="Intramuros" />
+              Intramuros
+            </label>
+            <label>
+              <input type="checkbox" name="location" value="Arroceros Forest Park" />
+              Arroceros Forest Park
+            </label>
+            <label>
+              <input type="checkbox" name="location" value="Rizal Park" />
+              Rizal Park
+            </label>
+            <label>
+              <input type="checkbox" name="location" value="National Museum of Natural History" />
+              National Museum of Natural History
+            </label>
+            <label>
+              <input type="checkbox" name="location" value="National Museum of Anthropology" />
+              National Museum of Anthropology
+            </label>
+            <label>
+              <input type="checkbox" name="location" value="National Museum of Fine Arts" />
+              National Museum of Fine Arts
+            </label>
+            <label>
+              <input type="checkbox" name="location" value="Enchanted Kingdom" />
+              Enchanted Kingdom
+            </label>
+            <label>
+              <input type="checkbox" name="location" value="Star City" />
+              Star City
+            </label>
+            <label>
+              <input type="checkbox" name="location" value="Manila Ocean Park" />
+              Manila Ocean Park
+            </label>
+            <label>
+              <input type="checkbox" name="location" value="DNA Museum" />
+              Digital National Art Museum (DNA Museum)
+            </label>
+            <label>
+              <input type="checkbox" name="location" value="Baluarte de San Diego" />
+              Baluarte de San Diego
+            </label>
+          </div>
+
+        </fieldset>
+
+    
+        <fieldset>
+          <legend>Companions</legend>
+          <p>Who are you going with? Select all that apply.</p>
+
+          <div class="checkbox-group">
+            <label>
+              <input type="checkbox" name="companion" value="Classmates" />
+              Classmates
+            </label>
+            <label>
+              <input type="checkbox" name="companion" value="Friends" />
+              Friends
+            </label>
+            <label>
+              <input type="checkbox" name="companion" value="Family" />
+              Family
+            </label>
+            <label>
+              <input type="checkbox" name="companion" value="School Group" />
+              School Group or Organization
+            </label>
+            <label>
+              <input type="checkbox" name="companion" value="Solo" />
+              Going Solo
+            </label>
+            <label>
+              <input type="checkbox" name="companion" value="Teachers" />
+              With Teachers
+            </label>
+          </div>
+
+        </fieldset>
+
+   
+        <fieldset>
+          <legend>Expectations</legend>
+
+          <div class="form-group">
+            <label>What are you most excited about? <span class="required">*</span></label>
+            <div class="radio-group">
+              <label>
+                <input type="radio" name="excitement" value="Learning something new" required />
+                Learning something new
+              </label>
+              <label>
+                <input type="radio" name="excitement" value="Having fun" />
+                Having fun
+              </label>
+              <label>
+                <input type="radio" name="excitement" value="Photos and content" />
+                Photos and content
+              </label>
+              <label>
+                <input type="radio" name="excitement" value="Food and exploration" />
+                Food and exploration
+              </label>
+              <label>
+                <input type="radio" name="excitement" value="Bonding with classmates" />
+                Bonding with classmates
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="expectations">What do you expect from this field trip? <span class="required">*</span></label>
+            <textarea id="expectations" name="expectations" rows="5" placeholder="Write your expectations here — what do you want to learn, see, or experience?" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Have you visited any of these places before?</label>
+            <div class="radio-group">
+              <label>
+                <input type="radio" name="prior_visit" value="Yes, most of them" />
+                Yes, most of them
+              </label>
+              <label>
+                <input type="radio" name="prior_visit" value="Yes, a few" />
+                Yes, a few
+              </label>
+              <label>
+                <input type="radio" name="prior_visit" value="No, first time" />
+                No, this is my first time
+              </label>
+            </div>
+          </div>
+
+        </fieldset>
+
+        <div class="form-actions">
+          <button type="submit">Submit Before Survey</button>
+          <a href="main.html">Cancel And Return to Main Page</a>
+        </div>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Group 5 &mdash; Local Tourism &times; School Classroom Feedback System</p>
+    <p>Assessment #1 &bull; Survey System </p>
+  </footer>
+
+
+</body>
+</html>
