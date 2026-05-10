@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>After Survey</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="forms.css" />
 </head>
 <body>
 
@@ -31,6 +31,9 @@
           <legend>Your Experience</legend>
 
           <div class="form-group">
+            <label for="name">Full Name <span class="required">*</span></label>
+            <input type="text" id="name" name="name" placeholder="e.g. Juan dela Cruz" required /> <br>
+            
             <label for="visited-loc">Location Visited <span class="required">*</span></label>
             <select id="visited-loc" name="visited_location" required>
               <option value="" disabled selected>Which place did you visit?</option>
@@ -70,7 +73,7 @@
                 Disappointed
               </label>
             </div>
-          </div>
+          </div> <br>
 
           <div class="form-group">
             <label>Staff / Local Interaction <span class="required">*</span></label>
@@ -82,7 +85,7 @@
               <label><input type="radio" name="staff_rating" value="4" /> 4 - Good</label>
               <label><input type="radio" name="staff_rating" value="5" /> 5 - Excellent</label>
             </div>
-          </div>
+          </div> <br>
 
           <div class="form-group">
             <label>Pricing / Entrance Fees <span class="required">*</span></label>
@@ -104,7 +107,7 @@
                 Not sure
               </label>
             </div>
-          </div>
+          </div> <br>
 
           <div class="form-group">
             <label>Cleanliness <span class="required">*</span></label>
@@ -116,7 +119,7 @@
               <label><input type="radio" name="cleanliness" value="4" /> 4</label>
               <label><input type="radio" name="cleanliness" value="5" /> 5</label>
             </div>
-          </div>
+          </div> <br>
 
           <div class="form-group">
             <label>Crowd Management <span class="required">*</span></label>
@@ -170,7 +173,7 @@
                 Very Dissatisfied
               </label>
             </div>
-          </div>
+          </div> <br>
 
           <div class="form-group">
             <label>Did the experience meet your expectations? <span class="required">*</span></label>
@@ -188,7 +191,7 @@
                 Partially
               </label>
             </div>
-          </div>
+          </div> <br>
 
           <div class="form-group">
             <label>Was the environment comfortable and safe? <span class="required">*</span></label>
@@ -251,7 +254,7 @@
                 Photography and observation
               </label>
             </div>
-          </div>
+          </div> <br>
 
           <div class="form-group">
             <label>Do you feel more confident after this field experience? <span class="required">*</span></label>
@@ -269,11 +272,11 @@
                 Somewhat
               </label>
             </div>
-          </div>
+          </div> <br>
 
           <div class="form-group">
             <label>Rate how helpful the experience was to your learning <span class="required">*</span></label>
-            <p class="hint">1 = Not helpful at all &nbsp;&mdash;&nbsp; 5 = Extremely helpful</p>
+            <p class="hint">1 = Not helpful at all | 5 = Extremely helpful</p>
             <div class="radio-group radio-inline">
               <label><input type="radio" name="helpfulness" value="1" required /> 1</label>
               <label><input type="radio" name="helpfulness" value="2" /> 2</label>
@@ -300,12 +303,8 @@
                 <input type="radio" name="recommend" value="No" />
                 No
               </label>
-              <label>
-                <input type="radio" name="recommend" value="Maybe" />
-                Maybe
-              </label>
             </div>
-          </div>
+          </div> <br>
 
           <div class="form-group">
             <label>Would you like to participate again next year? <span class="required">*</span></label>
@@ -357,7 +356,7 @@
 
         <div class="form-actions">
           <button type="submit">Submit Survey</button>
-         <a href="index.html">Cancel and Return to Home</a>
+         <a href="main.html">Cancel and Return to Home</a>
         </div>
 
       </form>

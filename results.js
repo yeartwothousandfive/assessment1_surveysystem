@@ -1,0 +1,246 @@
+(function () {
+
+  const params = new URLSearchParams(window.location.search);
+
+  const container =
+    document.getElementById('results-container');
+
+  const typeLabel =
+    document.getElementById('survey-type-label');
+
+  const isBefore =
+    params.has('name') || params.has('grade');
+
+  const isAfter =
+    params.has('visited_location') ||
+    params.has('first_impression');
+
+  function paramsToObject(params) {
+
+    const obj = {};
+
+    for (const key of params.keys()) {
+
+      const values = params.getAll(key);
+
+      obj[key] =
+        values.length > 1
+          ? values.join(', ')
+          : values[0];
+    }
+
+    return obj;
+  }
+
+  // load submissions 
+
+  const submissions =
+    JSON.parse(
+      localStorage.getItem('surveySubmissions')
+    ) || [];
+
+  typeLabel.textContent =
+    'All Survey Results';
+
+  // search bar
+
+  const searchBox =
+    document.createElement('input');
+
+  searchBox.type = 'text';
+
+  searchBox.placeholder =
+    'Search student name...';
+
+  searchBox.className =
+    'search-input';
+
+  container.appendChild(searchBox);
+
+  // table
+
+  const beforeFields = [
+    'name',
+    'grade',
+    'age',
+    'location',
+    'companion',
+    'excitement',
+    'expectations',
+    'prior_visit',
+    'timestamp'
+  ];
+
+  const afterFields = [
+    'name',
+    'visited_location',
+    'first_impression',
+    'staff_rating',
+    'pricing',
+    'cleanliness',
+    'crowd',
+    'overall_rating',
+    'met_expectations',
+    'environment_safe',
+    'skills_gained',
+    'more_confident',
+    'helpfulness',
+    'recommend',
+    'participate_again',
+    'liked_most',
+    'improvements',
+    'additional_comments',
+    'timestamp'
+  ];
+
+  function formatHeader(text) {
+
+    return text
+      .replaceAll('_', ' ')
+      .replace(/\b\w/g, c => c.toUpperCase());
+  }
+
+  function createTable(title, fields, data) {
+
+    const section =
+      document.createElement('section');
+
+    const heading =
+      document.createElement('h2');
+
+    heading.textContent = title;
+
+    section.appendChild(heading);
+
+    const table =
+      document.createElement('table');
+
+    table.className = 'result-table';
+
+    const thead =
+      document.createElement('thead');
+
+    const headRow =
+      document.createElement('tr');
+
+    fields.forEach(field => {
+
+      const th =
+        document.createElement('th');
+
+      th.textContent =
+        formatHeader(field);
+
+      headRow.appendChild(th);
+    });
+
+    thead.appendChild(headRow);
+
+    table.appendChild(thead);
+
+    const tbody =
+      document.createElement('tbody');
+
+    data.forEach(submission => {
+
+      const row =
+        document.createElement('tr');
+
+      fields.forEach(field => {
+
+        const td =
+          document.createElement('td');
+
+        td.textContent =
+          submission.answers[field] ||
+          submission[field] ||
+          '—';
+
+        row.appendChild(td);
+      });
+
+      tbody.appendChild(row);
+    });
+
+    table.appendChild(tbody);
+
+    section.appendChild(table);
+
+    return section;
+  }
+
+  function renderTables(filter = '') {
+
+    const oldSections =
+      document.querySelectorAll(
+        '.generated-table'
+      );
+
+    oldSections.forEach(sec => sec.remove());
+
+    const beforeData =
+      submissions.filter(sub => {
+
+        const name =
+          (sub.answers.name || '')
+            .toLowerCase();
+
+        return sub.type === 'before' &&
+          name.includes(
+            filter.toLowerCase()
+          );
+      });
+
+    const afterData =
+      submissions.filter(sub => {
+
+        const name =
+          (sub.answers.name || '')
+            .toLowerCase();
+
+        return sub.type === 'after' &&
+          name.includes(
+            filter.toLowerCase()
+          );
+      });
+
+    const beforeSection =
+      createTable(
+        'Before Survey Results',
+        beforeFields,
+        beforeData
+      );
+
+    beforeSection.classList.add(
+      'generated-table'
+    );
+
+    container.appendChild(beforeSection);
+
+    const afterSection =
+      createTable(
+        'After Survey Results',
+        afterFields,
+        afterData
+      );
+
+    afterSection.classList.add(
+      'generated-table'
+    );
+
+    container.appendChild(afterSection);
+  }
+
+  searchBox.addEventListener(
+    'input',
+    () => {
+
+      renderTables(
+        searchBox.value
+      );
+    }
+  );
+
+  renderTables();
+
+})();

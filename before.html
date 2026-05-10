@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Before Survey</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="forms.css" />
 </head>
 <body>
 
   <header>
     <nav>
-      <a href="main.html">Home</a>
+      <a href="main.html">Back to Home</a>
     </nav>
   </header>
 
@@ -53,16 +53,28 @@
                 <option value="Grade 11-STEM-B">Grade 11 - STEM B</option>
                 <option value="Grade 11-ABM">Grade 11 - ABM</option>
                 <option value="Grade 11-HUMSS">Grade 11 - HUMSS</option>
+                <option value="Grade 11-ICT">Grade 11 - ICT</option>
+                <option value="Grade 11-GAS">Grade 11 - GAS</option>
                 <option value="Grade 12-STEM-A">Grade 12 - STEM A</option>
                 <option value="Grade 12-STEM-B">Grade 12 - STEM B</option>
                 <option value="Grade 12-ABM">Grade 12 - ABM</option>
                 <option value="Grade 12-HUMSS">Grade 12 - HUMSS</option>
+                <option value="Grade 12-ICT">Grade 12 - ICT</option>
+                <option value="Grade 12-GAS">Grade 12 - GAS</option>
               </optgroup>
               <optgroup label="College">
-                <option value="College-1st">College - 1st Year</option>
-                <option value="College-2nd">College - 2nd Year</option>
-                <option value="College-3rd">College - 3rd Year</option>
-                <option value="College-4th">College - 4th Year</option>
+                <option value="College-1st-DIT">DIT 1-1</option>
+                <option value="College-1st-DIT">DIT 1-2</option>
+                <option value="College-1st-DIT">DIT 1-3</option>
+                <option value="College-1st-DIT">DIT 1-4</option>
+                <option value="College-2nd-DIT">DIT 2-1</option>
+                <option value="College-2nd-DIT">DIT 2-2</option>
+                <option value="College-2nd-DIT">DIT 2-3</option>
+                <option value="College-2nd-DIT">DIT 2-4</option>
+                <option value="College-3rd-DIT">DIT 3-1</option>
+                <option value="College-3rd-DIT">DIT 3-2</option>
+                <option value="College-3rd-DIT">DIT 3-3</option>
+                <option value="College-3rd-DIT">DIT 3-4</option>
               </optgroup>
             </select>
           </div>
@@ -77,7 +89,7 @@
      
         <fieldset>
           <legend>Preferred Locations</legend>
-          <p>Select all locations you want to visit.</p>
+          <p>Select all locations you want to visit:</p>
 
           <div class="checkbox-group">
             <label>
@@ -135,32 +147,20 @@
     
         <fieldset>
           <legend>Companions</legend>
-          <p>Who are you going with? Select all that apply.</p>
+          <p>How many companions will you bring?</p>
 
-          <div class="checkbox-group">
+          <div class="radio-group">
             <label>
-              <input type="checkbox" name="companion" value="Classmates" />
-              Classmates
+              <input type="radio" name="companion" value="Friends" /> 1 
             </label>
             <label>
-              <input type="checkbox" name="companion" value="Friends" />
-              Friends
+              <input type="radio" name="companion" value="Family" /> 2 
             </label>
             <label>
-              <input type="checkbox" name="companion" value="Family" />
-              Family
+              <input type="radio" name="companion" value="School Group" /> 3 
             </label>
             <label>
-              <input type="checkbox" name="companion" value="School Group" />
-              School Group or Organization
-            </label>
-            <label>
-              <input type="checkbox" name="companion" value="Solo" />
-              Going Solo
-            </label>
-            <label>
-              <input type="checkbox" name="companion" value="Teachers" />
-              With Teachers
+              <input type="radio" name="companion" value="Teachers" /> I will not bring a companion 
             </label>
           </div>
 
@@ -171,35 +171,35 @@
           <legend>Expectations</legend>
 
           <div class="form-group">
-            <label>What are you most excited about? <span class="required">*</span></label>
-            <div class="radio-group">
+            <label>What are you most excited about? </label>
+            <div class="checkbox-group">
               <label>
-                <input type="radio" name="excitement" value="Learning something new" required />
+                <input type="checkbox" name="excitement" value="Learning something new"/>
                 Learning something new
               </label>
               <label>
-                <input type="radio" name="excitement" value="Having fun" />
+                <input type="checkbox" name="excitement" value="Having fun" />
                 Having fun
               </label>
               <label>
-                <input type="radio" name="excitement" value="Photos and content" />
+                <input type="checkbox" name="excitement" value="Photos and content" />
                 Photos and content
               </label>
               <label>
-                <input type="radio" name="excitement" value="Food and exploration" />
+                <input type="checkbox" name="excitement" value="Food and exploration" />
                 Food and exploration
               </label>
               <label>
-                <input type="radio" name="excitement" value="Bonding with classmates" />
+                <input type="checkbox" name="excitement" value="Bonding with classmates" />
                 Bonding with classmates
               </label>
             </div>
-          </div>
+          </div> <br>
 
           <div class="form-group">
             <label for="expectations">What do you expect from this field trip? <span class="required">*</span></label>
-            <textarea id="expectations" name="expectations" rows="5" placeholder="Write your expectations here, what do you want to learn, see, or experience?" required></textarea>
-          </div>
+            <textarea id="expectations" name="expectations" rows="3" placeholder="Write your expectations here, what do you want to learn, see, or experience?" required></textarea>
+          </div> <br>
 
           <div class="form-group">
             <label>Have you visited any of these places before?</label>
