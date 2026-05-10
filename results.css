@@ -1,0 +1,160 @@
+#survey-header {
+    margin-bottom: 2rem;
+}
+
+#survey-header h1 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.4rem;
+    color: var(--text);
+}
+
+#survey-header p {
+    color: var(--subtext);
+    font-size: 1rem;
+}
+
+.phase-label {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--subtext);
+    margin-bottom: 0.5rem;
+}
+
+/* result sections  */
+.result-section {
+    margin-bottom: 2rem;
+}
+
+.result-section-title {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--subtext);
+    margin-bottom: 0.6rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--line);
+}
+
+/* table */
+.result-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--surface);
+    border-radius: var(--radius);
+    overflow: hidden;
+    font-size: 0.9rem;
+}
+
+.result-table thead tr {
+    background: #1a1a1e;
+}
+
+.result-table th {
+    text-align: left;
+    padding: 0.75rem 1.2rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--subtext);
+    border-bottom: 1px solid var(--line);
+}
+
+.result-table td {
+    padding: 0.85rem 1.2rem;
+    border-bottom: 1px solid var(--line);
+    color: var(--subtext);
+    vertical-align: top;
+    line-height: 1.55;
+}
+
+.result-table td:first-child {
+    color: var(--text);
+    width: 42%;
+    font-size: 0.88rem;
+}
+
+.result-table tbody tr:hover {
+    background: #16161a;
+}
+
+.result-table td.unanswered {
+    color: #555;
+    font-style: italic;
+}
+
+.no-data {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--subtext);
+}
+
+.no-data p {
+    margin-bottom: 0.5rem;
+}
+
+.timestamp {
+    font-size: 0.8rem;
+    color: #444;
+    text-align: right;
+    margin-top: 1rem;
+}
+
+.search-box {
+    margin-bottom: 2rem;
+}
+
+.search-box input {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.8rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: sans-serif;
+}
+
+.student-name {
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+}
+
+.search-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.8rem 1rem;
+    margin-bottom: 2rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: sans-serif;
+}
+
+.result-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 3rem;
+    overflow-x: auto;
+}
+
+.result-table th,
+.result-table td {
+    border: 2px solid #bababa;
+    padding: 0.75rem;
+    text-align: left;
+    vertical-align: top;
+}
+
+.result-table th {
+    background: #0f172a;
+    color: white;
+}
+
+.result-table td {
+    max-width: 300px;
+    word-wrap: break-word;
+}

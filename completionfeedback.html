@@ -4,19 +4,84 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Survey Completion Feedback</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
+<script>
+
+(function () {
+
+  const params =
+    new URLSearchParams(window.location.search);
+
+  const isBefore =
+    params.has('grade');
+
+  const isAfter =
+    params.has('visited_location');
+
+  if (!isBefore && !isAfter) return;
+
+  function paramsToObject(params) {
+
+    const obj = {};
+
+    for (const key of params.keys()) {
+
+      const values = params.getAll(key);
+
+      obj[key] =
+        values.length > 1
+          ? values.join(', ')
+          : values[0];
+    }
+
+    return obj;
+  }
+
+  const submission = {
+
+    type:
+      isBefore
+        ? 'before'
+        : 'after',
+
+    timestamp:
+      new Date().toLocaleString('en-PH'),
+
+    answers:
+      paramsToObject(params)
+  };
+
+  const existing =
+    JSON.parse(
+      localStorage.getItem('surveySubmissions')
+    ) || [];
+
+  existing.push(submission);
+
+  localStorage.setItem(
+    'surveySubmissions',
+    JSON.stringify(existing)
+  );
+
+})();
+    
+</script>
 <body>  
     
 
   <main>
 
     <section id="completion-feedback">
-      <h1>Thank You for Completing the Survey!</h1>
+      <h1>Thank you for completing the survey!</h1>
       <p>Your feedback is valuable and will help us improve future local tourism experiences and school field trips.</p>
-      <p>If you have any additional comments or suggestions, please feel free to share them with us.</p>
+      <p>If you have any additional comments or suggestions, please feel free to share them with us.</p> <br>
       <a href="main.html" class="btn">Return to Home</a>
+
+      <a href="results.html" class="btn" target="_blank"> View Survey Results </a>
     </section>
+
+    
 
   </main>
 </html>

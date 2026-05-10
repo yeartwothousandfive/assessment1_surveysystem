@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Local Tourism Feedback System</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
@@ -46,24 +46,73 @@
         </ol>   
     </section>
 
-<section id="locations">
+    <section id="locations">
         <h2>Featured Locations</h2>
         <p>Choose from 12 landmark destinations across Manila covered in this survey.</p>
 
-        <ul class="locations-list">
-            <li>Fort Santiago</li>
-            <li>Intramuros</li>
-            <li>Arroceros Forest Park</li>
-            <li>Rizal Park</li>
-            <li>National Museum of Natural History</li>
-            <li>National Museum of Anthropology</li>
-            <li>National Museum of Fine Arts</li>
-            <li>Enchanted Kingdom</li>
-            <li>Star City</li>
-            <li>Manila Ocean Park</li>
-            <li>Digital National Art Museum (DNA Museum)</li>
-            <li>Baluarte de San Diego</li>
-        </ul>
+        <div class="locations-wrapper">
+            <ul class="locations-list">
+                <li data-img="1">
+                    <span class="loc-num">01</span>
+                    <span class="loc-name">Fort Santiago</span>
+                </li>
+                <li data-img="2">
+                    <span class="loc-num">02</span>
+                    <span class="loc-name">Intramuros</span>
+                </li>
+                <li data-img="3">
+                    <span class="loc-num">03</span>
+                    <span class="loc-name">Arroceros Forest Park</span>
+                </li>
+                <li data-img="4">
+                    <span class="loc-num">04</span>
+                    <span class="loc-name">Rizal Park</span>
+                </li>
+                <li data-img="5">
+                    <span class="loc-num">05</span>
+                    <span class="loc-name">National Museum of Natural History</span>
+                </li>
+                <li data-img="6">
+                    <span class="loc-num">06</span>
+                    <span class="loc-name">National Museum of Anthropology</span>
+                </li>
+                <li data-img="7">
+                    <span class="loc-num">07</span>
+                    <span class="loc-name">National Museum of Fine Arts</span>
+                </li>
+                <li data-img="8">
+                    <span class="loc-num">08</span>
+                    <span class="loc-name">Enchanted Kingdom</span>
+                </li>
+                <li data-img="9">
+                    <span class="loc-num">09</span>
+                    <span class="loc-name">Star City</span>
+                </li>
+                <li data-img="10">
+                    <span class="loc-num">10</span>
+                    <span class="loc-name">Manila Ocean Park</span>
+                </li>
+                <li data-img="11">
+                    <span class="loc-num">11</span>
+                    <span class="loc-name">Digital National Art Museum (DNA Museum)</span>
+                </li>
+                <li data-img="12">
+                    <span class="loc-num">12</span>
+                    <span class="loc-name">Baluarte de San Diego</span>
+                </li>
+            </ul>
+
+            <!-- Sticky preview panel -->
+            <div class="location-preview" id="locationPreview">
+                <div class="preview-img-wrap">
+                    <img id="previewImg" src="" alt="" />
+                    <div class="preview-placeholder">
+                        <span>Hover a location</span>
+                    </div>
+                </div>
+                <p class="preview-label" id="previewLabel"></p>
+            </div>
+        </div>
     </section>
 
     <section id="cta">
@@ -90,5 +139,28 @@
         <p>Assessment 1 - Survey System</p>
     </footer>
 
+    <script>
+        const items = document.querySelectorAll('.locations-list li');
+        const previewImg = document.getElementById('previewImg');
+        const previewLabel = document.getElementById('previewLabel');
+        const placeholder = document.querySelector('.preview-placeholder');
+
+        items.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                const num = item.getAttribute('data-img');
+                const name = item.querySelector('.loc-name').textContent;
+                previewImg.src = 'images/' + num + '.jpg';
+                previewImg.alt = name;
+                previewLabel.textContent = name;
+                previewImg.style.opacity = '1';
+                placeholder.style.opacity = '0';
+                items.forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+            });
+            item.addEventListener('mouseleave', () => {
+                item.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
