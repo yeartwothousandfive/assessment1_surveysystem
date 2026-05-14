@@ -18,12 +18,26 @@
                
             </div>
         </div>
-
+<!--pinalitan ko yung emoji ng svg para mas maganda-->
         <div class="form-group">
             <label for="password">Password:</label>
-            <div style="position: relative; display: inline-block">
-                <input type="password" id="password" name="password" required minlength="8" maxlength="30" pattern="(?=.*\d)(?=.*[!@#$%^&*]).{8,}" title="Min 8 char, at least 1 number and 1 special character (!@#$%^&*)">
-                <span id="togglePassword" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; font-size: 18px; user-select: none;">👁️</span>
+            <div style="position: relative; display: inline-flex; align-items: center;">
+                <input type="password" id="password" name="password" required minlength="8" style="padding-right: 40px;" maxlength="30" pattern="(?=.*\d)(?=.*[!@#$%^&*]).{8,}" title="Min 8 char, at least 1 number and 1 special character (!@#$%^&*)">
+                <span id="togglePassword" style="position: absolute; right: 8px; top: 50%; transform: translateY(-50%); cursor: pointer; display: flex; align-items: center; justify-content: center; width: 22px; height: 22px;">
+                 
+                   <svg id="iconEyeOpen" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2 12c0 0 4-8 10-8s10 8 10 8-4 8-10 8-10-8-10-8z"/>
+                        <circle cx="12" cy="12" r="3"/>
+                        </svg>
+
+                   <svg id="iconEyeHidden" style="display: none;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                         <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-6 0-10-8-10-8a18.45 18.45 0 0 1 5.06-5.94"/>
+                         <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c6 0 10 8 10 8a18.5 18.5 0 0 1-2.16 3.19"/>
+                         <path d="M14.12 14.12a3 3 0 1 1-4.24-4.24"/>
+                         <line x1="2" y1="2" x2="22" y2="22"/>
+                    </svg>
+
+                </span>
             </div>
         </div>
 
@@ -33,11 +47,22 @@
     <script>
         const togglePassword = document.querySelector('#togglePassword');
         const passwordInput = document.querySelector('#password');
+        const iconEyeOpen = document.getElementById('iconEyeOpen');
+        const iconEyeHidden = document.getElementById('iconEyeHidden');
 
         togglePassword.addEventListener('click', function () {
             const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
             passwordInput.setAttribute('type', type);
-            this.textContent = type === 'password' ? '👁️' : '🙈';
+
+            if (type === 'password') {
+                // password hidden → show open eye
+                iconEyeOpen.style.display = 'block';
+                iconEyeHidden.style.display = 'none';
+            } else {
+                // password visible → show crossed eye
+                iconEyeOpen.style.display = 'none';
+                iconEyeHidden.style.display = 'block';
+            }
         });
 
         const studentNumInput = document.getElementById('studentNum');
@@ -46,13 +71,9 @@
             const cursor = this.selectionStart;
             const prevLen = this.value.length;
 
-       
             let raw = this.value.replace(/[^0-9A-Za-z]/g, '').toUpperCase();
-
-        
             raw = raw.substring(0, 12);
 
-          
             let fmt = '';
             if (raw.length > 0)  fmt  = raw.substring(0, 4);
             if (raw.length > 4)  fmt += '-' + raw.substring(4, 9);
@@ -61,7 +82,6 @@
 
             this.value = fmt;
 
- 
             const diff = fmt.length - prevLen;
             const newCursor = Math.max(0, cursor + diff);
             this.setSelectionRange(newCursor, newCursor);
