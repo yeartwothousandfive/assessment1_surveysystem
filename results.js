@@ -57,41 +57,88 @@
 
   container.appendChild(searchBox);
 
+
+  // delete all
+  
+  const deleteBtn = document.getElementById('del');
+
+  deleteBtn.addEventListener('click', () => {
+  if (confirm('Are you sure you want to delete all survey data? This cannot be undone.')) {
+    localStorage.removeItem('surveySubmissions');
+    renderTables();
+  }
+  });
+
+
   // table
 
   const beforeFields = [
-    'name',
-    'grade',
-    'age',
-    'location',
-    'companion',
-    'excitement',
-    'expectations',
-    'prior_visit',
-    'timestamp'
+  'name',
+  'grade',
+  'age',
+  'location',
+  'companion',
+  'excitement',
+  'expectations',
+  'prior_visit',
+  'timestamp'
   ];
 
   const afterFields = [
-    'name',
-    'visited_location',
-    'first_impression',
-    'staff_rating',
-    'pricing',
-    'cleanliness',
-    'crowd',
-    'overall_rating',
-    'met_expectations',
-    'environment_safe',
-    'skills_gained',
-    'more_confident',
-    'helpfulness',
-    'recommend',
-    'participate_again',
-    'liked_most',
-    'improvements',
-    'additional_comments',
-    'timestamp'
+  'name',
+  'visited_location',
+  'first_impression',
+  'staff_rating',
+  'pricing',
+  'cleanliness',
+  'crowd',
+  'overall_rating',
+  'met_expectations',
+  'environment_safe',
+  'skills_gained',
+  'more_confident',
+  'helpfulness',
+  'recommend',
+  'participate_again',
+  'liked_most',
+  'improvements',
+  'additional_comments',
+  'timestamp'
   ];
+
+  const beforeLabels = {
+    name:         'Name',
+    grade:        'Grade',
+    age:          'Age',
+    location:     'Location',
+    companion:    'Q1',
+    excitement:   'Q2',
+    expectations: 'Q3',
+    prior_visit:  'Q4',
+    timestamp:    'Timestamp'
+  };
+
+  const afterLabels = {
+    name:                'Name',
+    visited_location:    'Q1',
+    first_impression:    'Q2',
+    staff_rating:        'Q3',
+    pricing:             'Q4',
+    cleanliness:         'Q5',
+    crowd:               'Q6',
+    overall_rating:      'Q7',
+    met_expectations:    'Q8',
+    environment_safe:    'Q9',
+    skills_gained:       'Q10',
+    more_confident:      'Q11',
+    helpfulness:         'Q12',
+    recommend:           'Q13',
+    participate_again:   'Q14',
+    liked_most:          'Q15',
+    improvements:        'Q16',
+    additional_comments: 'Q17',
+    timestamp:           'Timestamp'
+  };
 
   function formatHeader(text) {
 
@@ -100,7 +147,7 @@
       .replace(/\b\w/g, c => c.toUpperCase());
   }
 
-  function createTable(title, fields, data) {
+  function createTable(title, fields, data, labels = {}) {
 
     const section =
       document.createElement('section');
@@ -129,7 +176,7 @@
         document.createElement('th');
 
       th.textContent =
-        formatHeader(field);
+        labels[field] || formatHeader(field);
 
       headRow.appendChild(th);
     });
@@ -182,8 +229,7 @@
       submissions.filter(sub => {
 
         const name =
-          (sub.answers.name || '')
-            .toLowerCase();
+          (sub.answers.name || '').toLowerCase();
 
         return sub.type === 'before' &&
           name.includes(
@@ -195,8 +241,7 @@
       submissions.filter(sub => {
 
         const name =
-          (sub.answers.name || '')
-            .toLowerCase();
+          (sub.answers.name || '').toLowerCase();
 
         return sub.type === 'after' &&
           name.includes(
@@ -205,11 +250,7 @@
       });
 
     const beforeSection =
-      createTable(
-        'Before Survey Results',
-        beforeFields,
-        beforeData
-      );
+      createTable('Before Survey Results', beforeFields, beforeData, beforeLabels);
 
     beforeSection.classList.add(
       'generated-table'
@@ -218,11 +259,7 @@
     container.appendChild(beforeSection);
 
     const afterSection =
-      createTable(
-        'After Survey Results',
-        afterFields,
-        afterData
-      );
+      createTable('After Survey Results', afterFields, afterData, afterLabels);
 
     afterSection.classList.add(
       'generated-table'
@@ -241,6 +278,30 @@
     }
   );
 
+  function removeDuplicates() {
+  const stored = JSON.parse(localStorage.getItem('surveySubmissions')) || [];
+
+  const seen = new Set();
+  const cleaned = stored.filter((sub, index) => {
+    const name     = (sub.answers?.name     || '').trim().toLowerCase();
+    const section  = (sub.answers?.grade    || '').trim().toLowerCase();
+    const location = (sub.answers?.location || '').trim().toLowerCase();
+
+    const key = `${sub.type}|${name}|${section}|${location}`;
+
+    if (seen.has(key)) {
+      console.log(`Duplicate removed at index ${index}:`, sub.answers?.name);
+      return false; 
+    }
+
+    seen.add(key); 
+    return true;
+  });
+
+  localStorage.setItem('surveySubmissions', JSON.stringify(cleaned));
+  }
+
+  removeDuplicates(); 
   renderTables();
 
 })();

@@ -24,6 +24,10 @@
 }
 
 /* result sections  */
+.results-container {
+    margin-bottom: 5rem;
+}
+
 .result-section {
     margin-bottom: 2rem;
 }
@@ -137,7 +141,7 @@
 .result-table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 3rem;
+    margin-bottom: 5rem;
     overflow-x: auto;
 }
 
