@@ -12,8 +12,23 @@
         <label for="username">Username:</label>
     <input type="text" id="username" name="username" required minlength="5" maxlength="20" pattern="[a-zA-Z0-9]+" title="Only letters and numbers allowed, 5-20 characters"><br><br>
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required minlength="8" maxlength="30" pattern="(?=.*\d)(?=.*[!@#$%^&*]).{8,}" title="Min 8 char, at least 1 number and 1 special character (!@#$%^&*)"><br><br>
+
+        <div style="position: relative; display: inline-block">
+            <input type="password" id="password" name="password" required minlength="8" maxlength="30" pattern="(?=.*\d)(?=.*[!@#$%^&*]).{8,}" title="Min 8 char, at least 1 number and 1 special character (!@#$%^&*)">
+            <span id="togglePassword" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;" font-size="18px" user-select="none">👁️</span>
+        </div>
+        <br><br>
         <input type="submit" value="Login">
     </form>
+    <script>
+        const togglePassword = document.querySelector('#togglePassword');
+        const passwordInput = document.querySelector('#password');
+
+        togglePassword.addEventListener('click', function () {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            this.textContent = type === 'password' ? '👁️' : '🙈';
+        });
+    </script>
 </body>
 </html>
