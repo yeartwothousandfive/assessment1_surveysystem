@@ -74,3 +74,12 @@ input[type="submit"] {
 input[type="submit"]:hover {
     opacity: 0.85;
 }
+
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.form-group label {
+    width: 140px;
+}

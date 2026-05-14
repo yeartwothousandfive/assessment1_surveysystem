@@ -8,21 +8,28 @@
 </head>
 <body>
     <h1>LOGIN</h1>
-    <form action="main.html" method="get">        
-        <label for="studentNum">Student Number:</label>
-    <input type="text" id="studentNum" name="studentNum" required placeholder="2024-09159-MN-0" maxlength="16" pattern="^\d{4}-\d{5}-[A-Z]{2}-\d$" title="Format: YYYY-NNNNN-XX-0 . Example: 2024-09159-MN-0" autocomplete="off">
-    <small>Format: YYYY-NNNNN-XX-0 . Example: 2024-01234-MN-0</small>
-        <br><br>
-       
-    <label for="password">Password:</label>
+    <form action="main.html" method="get">
 
-        <div style="position: relative; display: inline-block">
-            <input type="password" id="password" name="password" required minlength="8" maxlength="30" pattern="(?=.*\d)(?=.*[!@#$%^&*]).{8,}" title="Min 8 char, at least 1 number and 1 special character (!@#$%^&*)">
-            <span id="togglePassword" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;" font-size="18px" user-select="none">👁️</span>
+        <div class="form-group">
+            <label for="studentNum">Student Number:</label>
+            <div>
+                <input type="text" id="studentNum" name="studentNum" required placeholder="2024-09159-MN-0" maxlength="16" pattern="^\d{4}-\d{5}-[A-Z]{2}-\d$" title="Format: YYYY-NNNNN-XX-0 . Example: 2024-09159-MN-0" autocomplete="off">
+                <br>
+                <small>Format: YYYY-NNNNN-XX-0 . Example: 2024-01234-MN-0</small>
+            </div>
         </div>
-        <br><br>
+
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <div style="position: relative; display: inline-block">
+                <input type="password" id="password" name="password" required minlength="8" maxlength="30" pattern="(?=.*\d)(?=.*[!@#$%^&*]).{8,}" title="Min 8 char, at least 1 number and 1 special character (!@#$%^&*)">
+                <span id="togglePassword" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; font-size: 18px; user-select: none;">👁️</span>
+            </div>
+        </div>
+
         <input type="submit" value="Login">
     </form>
+
     <script>
         const togglePassword = document.querySelector('#togglePassword');
         const passwordInput = document.querySelector('#password');
@@ -34,15 +41,30 @@
         });
 
         const studentNumInput = document.getElementById('studentNum');
-        studentNumInput.addEventListener('input', function () {
-            let val = this.value.replace(/[^0-9A-Z-]/g, '').toUpperCase();
-            let formatted = "";
 
-            if (val.length > 0) formatted += val.substring(0, 4);
-            if (val.length > 4) formatted += '-' + val.substring(4, 9);
-            if (val.length > 9) formatted += '-' + val.substring(9, 11);
-            if (val.length > 11) formatted += '-' + val.substring(11, 12);
-            this.value = formatted;
+        studentNumInput.addEventListener('input', function () {
+            const cursor = this.selectionStart;
+            const prevLen = this.value.length;
+
+       
+            let raw = this.value.replace(/[^0-9A-Za-z]/g, '').toUpperCase();
+
+        
+            raw = raw.substring(0, 12);
+
+          
+            let fmt = '';
+            if (raw.length > 0)  fmt  = raw.substring(0, 4);
+            if (raw.length > 4)  fmt += '-' + raw.substring(4, 9);
+            if (raw.length > 9)  fmt += '-' + raw.substring(9, 11);
+            if (raw.length > 11) fmt += '-' + raw.substring(11, 12);
+
+            this.value = fmt;
+
+ 
+            const diff = fmt.length - prevLen;
+            const newCursor = Math.max(0, cursor + diff);
+            this.setSelectionRange(newCursor, newCursor);
         });
     </script>
 </body>
