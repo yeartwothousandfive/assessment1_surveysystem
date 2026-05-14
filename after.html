@@ -32,7 +32,7 @@
 
           <div class="form-group">
             <label for="name">Full Name <span class="required">*</span></label>
-            <input type="text" id="name" name="name" placeholder="e.g. Juan dela Cruz" required /> <br>
+            <input type="text" id="name" name="name" placeholder="e.g. Juan dela Cruz" required minlength="10" maxlength="50" pattern="[a-zA-Z0-9 ]+" title="Only letters and numbers allowed, 10-50 characters"/> <br>
             
             <label for="visited-loc">Location Visited <span class="required">*</span></label>
             <select id="visited-loc" name="visited_location" required>
