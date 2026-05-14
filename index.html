@@ -10,9 +10,9 @@
     <h1>LOGIN</h1>
     <form action="main.html" method="get">        
         <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required><br><br>
+    <input type="text" id="username" name="username" required minlength="5" maxlength="20" pattern="[a-zA-Z0-9]+" title="Only letters and numbers allowed, 5-20 characters"><br><br>
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br><br>
+        <input type="password" id="password" name="password" required minlength="8" maxlength="30" pattern="(?=.*\d)(?=.*[!@#$%^&*]).{8,}" title="Min 8 char, at least 1 number and 1 special character (!@#$%^&*)"><br><br>
         <input type="submit" value="Login">
     </form>
 </body>
