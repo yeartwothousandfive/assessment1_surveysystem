@@ -9,9 +9,12 @@
 <body>
     <h1>LOGIN</h1>
     <form action="main.html" method="get">        
-        <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required minlength="5" maxlength="20" pattern="[a-zA-Z0-9]+" title="Only letters and numbers allowed, 5-20 characters"><br><br>
-        <label for="password">Password:</label>
+        <label for="studentNum">Student Number:</label>
+    <input type="text" id="studentNum" name="studentNum" required placeholder="2024-09159-MN-0" maxlength="16" pattern="^\d{4}-\d{5}-[A-Z]{2}-\d$" title="Format: YYYY-NNNNN-XX-0 . Example: 2024-09159-MN-0" autocomplete="off">
+    <small>Format: YYYY-NNNNN-XX-0 . Example: 2024-01234-MN-0</small>
+        <br><br>
+       
+    <label for="password">Password:</label>
 
         <div style="position: relative; display: inline-block">
             <input type="password" id="password" name="password" required minlength="8" maxlength="30" pattern="(?=.*\d)(?=.*[!@#$%^&*]).{8,}" title="Min 8 char, at least 1 number and 1 special character (!@#$%^&*)">
@@ -28,6 +31,18 @@
             const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
             passwordInput.setAttribute('type', type);
             this.textContent = type === 'password' ? '👁️' : '🙈';
+        });
+
+        const studentNumInput = document.getElementById('studentNum');
+        studentNumInput.addEventListener('input', function () {
+            let val = this.value.replace(/[^0-9A-Z-]/g, '').toUpperCase();
+            let formatted = "";
+
+            if (val.length > 0) formatted += val.substring(0, 4);
+            if (val.length > 4) formatted += '-' + val.substring(4, 9);
+            if (val.length > 9) formatted += '-' + val.substring(9, 11);
+            if (val.length > 11) formatted += '-' + val.substring(11, 12);
+            this.value = formatted;
         });
     </script>
 </body>
